@@ -1,57 +1,41 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Tienda de Mercancía</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        #header {
-            background-color: #333;
-            color: #fff;
-            padding: 10px;
-            text-align: center;
-        }
-        #product-list {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-        }
-        .product {
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            padding: 10px;
-            margin: 10px;
-            width: 30%;
-        }
-    </style>
+    <title>Registro de Usuarios</title>
 </head>
 <body>
-    <div id="header">
-        <h1>Tienda de Mercancía</h1>
-    </div>
-    
-    <div id="product-list">
-        <div class="product">
-            <h2>Producto 1</h2>
-            <img src="imagen1.jpg" alt="Producto 1">
-            <p>Descripción del producto 1.</p>
-            <p>Precio: $19.99</p>
-        </div>
+    <h1>Registro de Usuarios</h1>
+    <form id="registrationForm">
+        <label for="username">Nombre de Usuario:</label>
+        <input type="text" id="username" name="username" required><br>
         
-        <div class="product">
-            <h2>Producto 2</h2>
-            <img src="imagen2.jpg" alt="Producto 2">
-            <p>Descripción del producto 2.</p>
-            <p>Precio: $24.99</p>
-        </div>
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" name="password" required><br>
         
-        <div class="product">
-            <h2>Producto 3</h2>
-            <img src="imagen3.jpg" alt="Producto 3">
-            <p>Descripción del producto 3.</p>
-            <p>Precio: $29.99</p>
-        </div>
-    </div>
+        <label for="confirmPassword">Confirmar Contraseña:</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" required><br>
+        
+        <button type="button" onclick="registerUser()">Registrarse</button>
+    </form>
+
+    <p id="message"></p>
+
+    <script>
+        function registerUser() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirmPassword").value;
+
+            if (password !== confirmPassword) {
+                document.getElementById("message").innerHTML = "Las contraseñas no coinciden.";
+            } else {
+                // Aquí puedes enviar los datos del usuario a un servidor para su registro.
+                // Puedes usar AJAX o Fetch para enviar la información a un servidor backend en PHP, Node.js, u otro lenguaje.
+                // No se recomienda almacenar contraseñas en texto plano. Deberías usar una función de hash y salting.
+                // Este es un ejemplo muy simplificado solo con fines de demostración.
+                document.getElementById("message").innerHTML = "Usuario registrado con éxito: " + username;
+            }
+        }
+    </script>
 </body>
 </html>
